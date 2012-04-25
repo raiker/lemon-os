@@ -4,7 +4,7 @@ SECTIONS
 {
     . = 0x00100000;
 
-	.multibootheader ALIGN (0x1000) :
+	.multibootheader ALIGN (0x400) :
 	{
 		*(.multibootheader)
 	}

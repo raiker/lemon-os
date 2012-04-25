@@ -5,7 +5,7 @@ IMAGE=floppy.img
 CPPFLAGS=-g -Wall -Werror -std=gnu++0x -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -m32 \
 -fno-exceptions -fno-rtti -fno-stack-protector -I./include/ -I./include/common/
 LDFLAGS=-Wall -Werror -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs
-NASMFLAGS=-f elf -g -w+orphan-labels
+NASMFLAGS=-f elf -g -w+orphan-labels -I./include/ -I./include/common/
 LINKSCRIPT=linker.ld
 
 .PHONY : clean all
@@ -36,4 +36,7 @@ $(TARGET) : $(OBJS) $(LINKSCRIPT)
 
 clean:
 	rm -f $(TARGET) *.o *.d
+	
+mbchk : mbchk/mbchk
+	cd mbchk; make all
 
