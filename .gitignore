@@ -13,3 +13,6 @@
 
 # Swap files
 *.swp
+
+# Dependency files
+*.d
