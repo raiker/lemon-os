@@ -1,9 +1,9 @@
-OBJS=loader.o kmain.o gdt.o
+OBJS=loader.o kmain.o gdt.o console.o
 TARGET=lemon-os
 IMAGE=floppy.img
 
 CPPFLAGS=-g -Wall -Werror -std=gnu++0x -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -m32 \
--fno-exceptions -fno-rtti -fno-stack-protector
+-fno-exceptions -fno-rtti -fno-stack-protector -I./include/ -I./include/common/
 LDFLAGS=-Wall -Werror -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs
 NASMFLAGS=-f elf -g -w+orphan-labels
 LINKSCRIPT=linker.ld

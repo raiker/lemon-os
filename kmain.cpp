@@ -1,4 +1,5 @@
 #include "asmdefs.h"
+#include <console.h>
 
 extern "C" void kmain( void* mbd, unsigned int magic ){
 	if ( magic != 0x2BADB002 )
@@ -14,9 +15,12 @@ extern "C" void kmain( void* mbd, unsigned int magic ){
 	//char * boot_loader_name =(char*) ((long*)mbd)[16];
 
 	/* Print a letter to screen to see everything is working: */
-	unsigned char *videoram = (unsigned char *) 0xb8000;
-	videoram[0] = 65; /* character 'A' */
-	videoram[1] = 0x07; /* light grey (7) on black (0). */
+	//unsigned char *videoram = (unsigned char *) 0xb8000;
+	//videoram[0] = 65; /* character 'A' */
+	//videoram[1] = 0x07; /* light grey (7) on black (0). */
 
+	BufferConsole c((void*)0xb8000);
+	c << "This is the KERNEL. YEEEAAAHHHH~!!~~!" << "\n" << "Suck it.";
+	
 	load_gdt();
 }
