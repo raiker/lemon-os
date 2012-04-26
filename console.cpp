@@ -1,5 +1,7 @@
 #include "console.h"
 
+BufferConsole VideoRamConsole((void*)0xb8000);
+
 BufferConsole::BufferConsole(void* buffer) : fgColour(this, &m_fgColour), bgColour(this, &m_bgColour)
 {
 	this->buffer = (uint16_t*)buffer;
