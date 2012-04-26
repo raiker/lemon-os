@@ -1,4 +1,4 @@
-#include "asmdefs.h"
+#include "cputables.h"
 #include <console.h>
 
 extern "C" void kmain( void* mbd, unsigned int magic ){
@@ -23,4 +23,5 @@ extern "C" void kmain( void* mbd, unsigned int magic ){
 	c << "This is the KERNEL. YEEEAAAHHHH~!!~~!" << "\n" << "Suck it.";
 	
 	load_gdt();
+	load_idt();
 }

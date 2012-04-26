@@ -16,3 +16,6 @@
 
 # Dependency files
 *.d
+
+# Executables
+lemon-os

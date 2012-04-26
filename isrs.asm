@@ -1,6 +1,4 @@
-extern debug_print, os_hang
-
-global isr_null, isr_de, isr_nmi, isr_bp
+;extern debug_print, os_hang
 
 section .data
 
@@ -11,6 +9,15 @@ error_null:
 	db "Unknown interrupt\0"
 
 section .text
+
+global isr_null, isr_de, isr_nmi, isr_bp
+
+os_hang:
+	hlt
+	jmp os_hang
+
+debug_print:
+	ret
 
 ; null interrupt: should not be called
 

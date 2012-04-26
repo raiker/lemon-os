@@ -13,6 +13,8 @@ typedef signed char int8_t;
 typedef unsigned long long int uint64_t;
 typedef signed long long int int64_t;
 
+typedef uint32_t uintptr_t
+
 //And because i can think of nowhere better to put this
 #define NULL 0
 

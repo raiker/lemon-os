@@ -2,51 +2,53 @@ ENTRY (loader)
 
 SECTIONS
 {
-    . = 0x00100000;
+	. = 0x00100000;
 
 	.multibootheader ALIGN (0x1000) :
 	{
 		*(.multibootheader)
 	}
-	
-    .text ALIGN (0x1000) :
-    {
-        *(.text)
-        *(.gnu.linkonce.t*)
-    }
 
-    .rodata ALIGN (0x1000) :
-    {
-        start_ctors = .;
-        *(.ctor*)
-        end_ctors = .;
+	.text ALIGN (0x1000) :
+	{
+		*(.text)
+		*(.gnu.linkonce.t*)
+	}
 
-        start_dtors = .;
-        *(.dtor*)
-        end_dtors = .;
+	.rodata ALIGN (0x1000) :
+	{
+		start_ctors = .;
+		*(.ctor*)
+		end_ctors = .;
 
-        *(.rodata*)
-        *(.gnu.linkonce.r*)
-    }
+		start_dtors = .;
+		*(.dtor*)
+		end_dtors = .;
 
-    .data ALIGN (0x1000) :
-    {
-        *(.data)
-        *(.gnu.linkonce.d*)
-    }
+		*(.rodata*)
+		*(.gnu.linkonce.r*)
+	}
 
-    .bss :
-    {
-        sbss = .;
-        *(COMMON)
-        *(.bss)
-        *(.gnu.linkonce.b*)
-        ebss = .;
-    }
+	.data ALIGN (0x1000) :
+	{
+		*(.gdt)
+		*(.data)
+		*(.gnu.linkonce.d*)
+	}
 
-    /DISCARD/ :
-    {
-        *(.comment)
-        *(.eh_frame) /* discard this, unless you are implementing runtime support for C++ exceptions. */
-    }
+	.bss :
+	{
+		sbss = .;
+		*(.idt.bss)
+		*(COMMON)
+		*(.bss)
+		*(.gnu.linkonce.b*)
+		ebss = .;
+	}
+
+	/DISCARD/ :
+	{
+		*(.comment)
+		*(.eh_frame) /* discard this, unless you are implementing runtime support for C++ exceptions. */
+	}
 }
