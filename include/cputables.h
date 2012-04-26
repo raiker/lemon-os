@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "stdint.h"
 
 extern "C" void load_gdt();
 extern "C" void load_idt();

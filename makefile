@@ -36,4 +36,7 @@ $(TARGET) : $(OBJS) $(LINKSCRIPT)
 
 clean:
 	rm -f $(TARGET) *.o *.d
+	
+mbchk/mbchk : mbchk/mbchk.c mbchk/multiboot.h
+	cd mbchk; make all
 

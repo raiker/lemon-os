@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "include/common/stdint.h"
 #include "cputables.h"
 
 struct idt_entry {
