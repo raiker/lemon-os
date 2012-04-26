@@ -44,7 +44,7 @@ GDT_data_entry:
 	MAKE_GDT_ENTRY 0x00000000, 0xfffff, GDT_FLAGS_GR | GDT_FLAGS_SZ, GDT_ACCESS_PR | GDT_ACCESS_PRIVL(0) | GDT_ACCESS_RW
 GDT_end:
 
-section .idt.bss
+section .bss
 
 global IDT_start, IDT_end
 
@@ -53,7 +53,7 @@ global IDT_start, IDT_end
 align 8
 
 IDT_start:
-	times 256 dq 0
+	times 256 resb 8
 IDT_end:
 
 section .data

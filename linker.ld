@@ -32,6 +32,7 @@ SECTIONS
 	.data ALIGN (0x1000) :
 	{
 		*(.gdt)
+		/*(.idt)*/
 		*(.data)
 		*(.gnu.linkonce.d*)
 	}
@@ -39,7 +40,6 @@ SECTIONS
 	.bss :
 	{
 		sbss = .;
-		*(.idt.bss)
 		*(COMMON)
 		*(.bss)
 		*(.gnu.linkonce.b*)

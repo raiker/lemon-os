@@ -8,7 +8,7 @@ LDFLAGS=-Wall -Werror -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs
 NASMFLAGS=-f elf -g -w+orphan-labels -Werror -Wall
 LINKSCRIPT=linker.ld
 
-.PHONY : clean all
+.PHONY : clean all mbchk
 
 all : $(TARGET)
 
@@ -37,6 +37,6 @@ $(TARGET) : $(OBJS) $(LINKSCRIPT)
 clean:
 	rm -f $(TARGET) *.o *.d
 	
-mbchk/mbchk : mbchk/mbchk.c mbchk/multiboot.h
+mbchk : mbchk/mbchk.c mbchk/multiboot.h
 	cd mbchk; make all
 
