@@ -241,7 +241,7 @@ static bool isDependentException(uint64_t cls)
 static __cxa_exception *exceptionFromPointer(void *ex)
 {
 	return (__cxa_exception*)((char*)ex -
-			offsetof(struct __cxa_exception, unwindHeader));
+			offsetof(__cxa_exception, unwindHeader));
 }
 static __cxa_exception *realExceptionFromException(__cxa_exception *ex)
 {

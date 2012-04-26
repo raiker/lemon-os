@@ -1,2 +1,4 @@
+#include <stdint.h>
+
 void * kmalloc(size_t size);
-void free(void * alloc);
+void kfree(void * alloc);

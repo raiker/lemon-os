@@ -1,6 +1,6 @@
 OBJS=loader.o kmain.o cputables.o console.o buildtables.o isrs.o auxhelper.o cxa_atexit.o cxa_finalize.o \
 	dynamic_cast.o exception.o guard.o libelftc_dem_gnu3.o memory.o stdexcept.o terminate.o typeinfo.o \
-	libc-kernel/abort.o libc-kernel/assert.o
+	libc-kernel/abort.o libc-kernel/assert.o libc-kernel/pthread.o libc-kernel/calloc.o libc-kernel/memset.o
 TARGET=lemon-os
 IMAGE=floppy.img
 
