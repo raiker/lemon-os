@@ -20,7 +20,12 @@ extern "C" void kmain( void* mbd, unsigned int magic ){
 	//videoram[1] = 0x07; /* light grey (7) on black (0). */
 
 	BufferConsole c((void*)0xb8000);
-	c << "This is the KERNEL. YEEEAAAHHHH~!!~~!" << "\n" << "Suck it.";
-	
+	c << "I am testing the scrolling behaviour of the console.\n";
+	c << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
+	c << "Now let's iterate over about 25 lines";
+	for (int i = 0; i < 25; i++)
+		c << "Iteratin...\n";
+	c << "Will now print something on the bottom, hopefully\n";
+	c << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
 	load_gdt();
 }

@@ -24,7 +24,7 @@ void BufferConsole::scroll()
 		}	
 	}
 	//clear the last line to empty
-	for (int i = 0; i < NLines; i++)
+	for (int i = 0; i < LineWidth; i++)
 	{
 		//going to assume null character clears the char
 		uint16_t attrib = this->getColourAttrib();
