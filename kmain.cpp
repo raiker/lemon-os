@@ -28,6 +28,10 @@ extern "C" void kmain( void* mbd, unsigned int magic ){
 	c << "Will now print something on the bottom, hopefully\n";
 	c << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
 
+	c << "Loading GDT...";
 	load_gdt();
+	c << "done\n";
+	c << "Loading IDT...";
 	load_idt();
+	c << "done\n";
 }
