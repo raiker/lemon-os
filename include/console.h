@@ -48,4 +48,6 @@ class BufferConsole
 		property < BufferConsole, uint8_t, PROP_READ_WRITE > bgColour;
 };
 
+extern BufferConsole VideoRamConsole;
+
 #endif

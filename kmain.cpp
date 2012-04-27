@@ -19,14 +19,13 @@ extern "C" void kmain( void* mbd, unsigned int magic ){
 	//videoram[0] = 65; /* character 'A' */
 	//videoram[1] = 0x07; /* light grey (7) on black (0). */
 
-	BufferConsole c((void*)0xb8000);
-	c << "I am testing the scrolling behaviour of the console.\n";
-	c << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
-	c << "Now let's iterate over about 25 lines";
+	VideoRamConsole << "I am testing the scrolling behaviour of the console.\n";
+	VideoRamConsole << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
+	VideoRamConsole << "Now let's iterate over about 25 lines";
 	for (int i = 0; i < 25; i++)
-		c << "Iteratin...\n";
-	c << "Will now print something on the bottom, hopefully\n";
-	c << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
+		VideoRamConsole << "Iteratin...\n";
+	VideoRamConsole << "Will now print something on the bottom, hopefully\n";
+	VideoRamConsole << "Let's first try a line with a lot lot lot lot lot lot lot lot lot lot lot of characters. You know what I mean?\n";
 
 	c << "Loading GDT...";
 	load_gdt();

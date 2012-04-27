@@ -1,9 +1,11 @@
-OBJS=loader.o kmain.o cputables.o console.o buildtables.o isrs.o
+OBJS=loader.o kmain.o cputables.o console.o buildtables.o isrs.o auxhelper.o cxa_atexit.o cxa_finalize.o \
+	dynamic_cast.o exception.o guard.o libelftc_dem_gnu3.o memory.o stdexcept.o terminate.o typeinfo.o \
+	libc-kernel/abort.o libc-kernel/assert.o libc-kernel/pthread.o libc-kernel/calloc.o libc-kernel/memset.o
 TARGET=lemon-os
 IMAGE=floppy.img
 
-CPPFLAGS=-g -Wall -Werror -std=gnu++0x -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -m32 \
--fno-exceptions -fno-rtti -fno-stack-protector -I./include/ -I./include/common/
+CPPFLAGS=-g -Wall -Werror -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -m32 \
+ -fno-stack-protector -I./include/ -I./include/common/ --sysroot=.
 LDFLAGS=-Wall -Werror -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs
 NASMFLAGS=-f elf -g -w+orphan-labels -Werror -Wall
 LINKSCRIPT=linker.ld
